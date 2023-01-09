@@ -1,43 +1,37 @@
-const natalia = {
-  name: 'Natalia',
-  age: 20,
-  cursosAprobados: ['Curso Definitivo de HTML y CSS', 'Curso Practico de HTML y CSS'],
-  aprobarCurso(nuevoCursito) {
-    this.cursosAprobados.push(nuevoCursito);
-  }
-};
-
-function Student(name, age, cursosAprobados) {
-  this.name = name;
-  this.age = age;
-  this.cursosAprobados = cursosAprobados;
-  // this.aprobarCurso = function(nuevoCursito) {
-  //   this.cursosAprobados.push(nuevoCursito);
-  // }
-};
-
-Student.prototype.aprobarCurso = function(nuevoCursito) {
-  this.cursosAprobados.push(nuevoCursito);
-}
-
-const juanita = new Student('Juanita Alejandra', 15, ['Curso de Introducción a la Producción de Videojuegos', 'Curso de Creación de Personajes'])
-
-// Prototipos con la sintaxis de clases
-class Student2 {
+class Student {
   constructor({
     name,
-    cursosAprobados = [],
-    age,
-    email
+    email,
+    username,
+    twitter = undefined,
+    instagram = undefined,
+    facebook = undefined,
+    approvedCourses = [],
+    learningPaths = []
   }) {
     this.name = name;
-    this.age = age;
-    this.cursosAprobados = cursosAprobados; 
-  }
-
-  aprobarCurso(nuevoCursito) {
-    this.cursosAprobados.push(nuevoCursito);
+    this.email = email;
+    this.username = username;
+    this.socialMedia = { 
+      twitter, // this is an easier syntax to twitter = twitter.
+      instagram,
+      facebook
+    }
+    this.approvedCourses = approvedCourses;
+    this.learningPaths = learningPaths;
   }
 };
 
-const miguelito = new Student2({name: "Miguel", age: 28, email: "miguelito@platzi.com"});
+const juan2 = new Student({
+  name: "JuanDC",
+  username: "juandc",
+  email: "juanito@juanito.com",
+  twitter: "fjuandc"
+});
+
+const miguelito2 = new Student({
+  name: "Miguelito",
+  username: "migelitofeliz",
+  email: "miguelito@juanito.com",
+  instagram: "migelito_feliz",
+});
