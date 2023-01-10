@@ -26,6 +26,25 @@ class PlatziClass {
 }
 // Module
 
+class Comment {
+  constructor({
+    content,
+    studentName,
+    studentRole = "estudiante",
+  }) {
+    this.content = content;
+    this.studentName = studentName;
+    this.studentRole = studentRole;
+    this.likes = 0;
+  }
+
+  publicar() {
+    console.log(this.studentName + " (" + this.studentRole + ")");
+    console.log(this.likes + " likes");
+    console.log(this.content);
+  }
+}
+
 class Course {
   constructor({
     name,
@@ -120,7 +139,30 @@ class Student {
     this.approvedCourses = approvedCourses;
     this.learningPaths = learningPaths;
   }
+
+  publicarComentario(commentContent) {
+    const comment = new Comment({
+      content: commentContent,
+      studentName: this.name,
+    });
+    comment.publicar();
+  }
 };
+
+
+class FreeStudent extends Student {
+  constructor(props) {
+    super(props);
+  }
+
+  approveCourse(newCourse) {
+    if (newCourse.isFree) {
+      this.approvedCourses.push(newCourse);
+    } else {
+      console.warn("Lo sentimos, " + this.name + ", solo puedes tomar cursos abiertos");
+    }
+  }
+}
 
 class FreeStudent extends Student {
   constructor(props) {
@@ -178,4 +220,11 @@ const miguelito2 = new BasicStudent({
     escuelaWeb,
     escuelaData
   ]
+});
+
+const freddy = new TeacherStudent({
+  name: "Freddy Vega",
+  username: "freddier",
+  email: "f@gep.com",
+  instagram: "freddiervega",
 });
