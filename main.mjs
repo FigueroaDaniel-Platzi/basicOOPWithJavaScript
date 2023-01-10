@@ -1,3 +1,31 @@
+// Modules
+function videoPlay(id) {
+  const urlSecreta = "https://platziultrasecretomasquelanasa.com/" + id;
+  console.log("Se está reproduciendo desde la url " + urlSecreta);
+}
+function videoStop(id) {
+  const urlSecreta = "https://platziultrasecretomasquelanasa.com/" + id;
+  console.log("Pausamos la url " + urlSecreta);
+}
+
+export class PlatziClass {
+  constructor({
+    name,
+    videoId
+  }) {
+    this.name = name;
+    this.videoId = videoId;
+  }
+
+  reproducir() {
+    videoPlay(this.videoId)
+  }
+  pausar() {
+    videoStop(this.videoId);
+  }
+}
+// Module
+
 class Course {
   constructor({
     name,
